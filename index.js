@@ -2,9 +2,9 @@ console.clear();
 
 const cards = document.querySelectorAll('[data-js="button-bookmark"]'); //step 1
 
-const answButton = document.querySelectorAll('[data-js="button-answer"]'); //step 2
+const answButton = document.querySelector('[data-js="button-answer"]'); //step 2
 /* qSelAll - damit alle Karten ausgew. werden */
-const answText = document.querySelectorAll('[data-js="text-answ"]');
+const answText = document.querySelector('[data-js="text-answ"]');
 
 /*step1*/
 cards.forEach((card) => {
@@ -15,38 +15,38 @@ cards.forEach((card) => {
   });
 });
 
-answButton.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    const answText = event.target.parentNode.querySelector(
-      '[data-js="text-answ"]'
-    );
-    answText.classList.toggle("card__answer--active");
-
-    if (event.target.textContent === "Hide answer") {
-      event.target.textContent = "Show answer";
-    } else {
-      event.target.textContent = "Hide answer";
-    }
-  });
-}); /*
-
 /*step2*/
-answButton.forEach((answButton) => {
-  answButton.addEventListener("click", () => {
-    console.log("works");
-    const answText = event.target.parentnode.querySelector(
+
+/*answButton.forEach((answButton) => {  });        */
+
+answButton.addEventListener("click", () => {
+  console.log("works");
+
+  answText.classList.toggle("card__answer--active");
+
+  if (answButton.textContent == "Hide answer") {
+    answButton.textContent = "Show answer";
+  } else {
+    answButton.textContent = "Hide answer";
+  }
+});
+
+/* just first answButton works---- but not when impl. following:
+
+- before the addEvLi: answButton.forEach((answButton) => {  }); 
+- in the addEvLi
+const answText = event.target.parentnode.querySelector(
       '[data-js="text-answ"]'
     );
-    answText.classList.toggle("card__answer--active");
 
-    if (answButton.textContent == "Hide answer") {
-      answButton.textContent = "Show answer";
-    } else {
-      answButton.textContent = "Hide answer";
-    }
-  });
-});
-*/
+    ++ querySelAll in the const above?????
+
+
+
+
+
+
+
 
 /* --Step 2
 
