@@ -11,8 +11,8 @@
   cursor: pointer;
 }
 
-.bookmark--active {
-  color: var(--black);
+.bookmark--active > svg {
+  fill: var(--black);
 }
 
 .bookmark__icon {
